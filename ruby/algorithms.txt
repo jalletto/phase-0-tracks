@@ -1,0 +1,11 @@
+1. The algorithm for using an elevator. 
+	If you want to go up press up
+	- else press down
+	When doors open move forward. 
+	Stop at wall. 
+	Turn until you find the button panel  
+	start at 1 and scan panel until desired_floor == panel_number
+	push button 
+
+2. Come up with an example of a common task in your life that could be translated into an algorithm, and write out the steps in algorithms.txt (labeled with the name of the task).
+	
