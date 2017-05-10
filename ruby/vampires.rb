@@ -38,8 +38,36 @@ until insurance == true || insurance == false do
   end
 end
 
-
-
-
-
 puts "Name:#{name}\nAge:#{age}\nYOB:#{birth_year}\nLikes garlic:#{likes_garlic}\nInsurance:#{insurance}\nAge Verified:#{age_varified}"
+
+case
+when age_varified == true && (likes_garlic == true || insurance == true)
+  result = "Probably not a vampire"
+when age_varified == false && (likes_garlic == false && insurance == true) || (likes_garlic == true && insurance == true)
+  result = "Probably a vampire."
+when age_varified == false && likes_garlic == false && insurance == false
+  result = "Almost certainly a vampire."
+when name == "Drak Cula" || name == "Tu Fang"
+  result = "Definitely a vampire."
+else
+  result = "Results inconclusive."
+end
+
+
+
+# if age_varified == true && (likes_garlic == true || insurance == true)
+#   result = "Probably not a vampire"
+# elsif age_varified == false && (likes_garlic == false && insurance == true) || (likes_garlic == true && insurance == true)
+#   result = "Probably a vampire."
+# elsif age_varified == false && likes_garlic == false && insurance == false
+#   result = "Almost certainly a vampire."
+# elsif name == "Drak Cula" || name == "Tu Fang"
+#   result = "Definitely a vampire."
+# else
+#   result = "Results inconclusive."
+# end
+
+puts result
+
+
+
