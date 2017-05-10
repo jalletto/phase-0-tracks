@@ -4,6 +4,12 @@ puts "How old are you?"
 age = gets.chomp.to_i
 puts "What year were you born?"
 birth_year = gets.chomp.to_i
+if birth_year + age == 2017 || birth_year + age == 2016
+  age_varified = true
+else
+  age_varified = false
+end
+
 puts "Our company cafeteria serves garlic bread. Should we order some for you?"
 likes_garlic = gets.chomp
 
@@ -18,7 +24,7 @@ until likes_garlic == true || likes_garlic == false do
   end
 end
 
-puts "Would you like to enroll in our health insurance"
+puts "Would you like to enroll in our health insurance?"
 insurance = gets.chomp
 
 until insurance == true || insurance == false do
@@ -35,4 +41,5 @@ end
 
 
 
-puts "Name:#{name}\nAge:#{age}\nYOB:#{birth_year}\nLikes garlic:#{likes_garlic}\nInsurance:#{insurance}\n"
+
+puts "Name:#{name}\nAge:#{age}\nYOB:#{birth_year}\nLikes garlic:#{likes_garlic}\nInsurance:#{insurance}\nAge Verified:#{age_varified}"
