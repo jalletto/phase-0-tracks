@@ -46,15 +46,25 @@ until employees == 0 do
     end
   end
 
-  if age_varified == true && (likes_garlic == true || insurance == true)
+  puts "Please list any allergies one at a time. Type 'done' and press enter when completed."
+  allergies = gets.chomp
+
+  until allergies == "sunshine" || allergies == "done" do
+    puts "Please list any allergies one at a time. Type 'done' and press enter when completed."
+    allergies = gets.chomp
+  end
+
+  if age_varified == true && (likes_garlic == true || insurance == true) && allergies == "done"
     result = "Probably not a vampire"
-  elsif age_varified == false && (likes_garlic == false && insurance == true)   || (likes_garlic == true && insurance == false)
+  elsif age_varified == false && (likes_garlic == false && insurance == true) || age_varified == false && (likes_garlic == true && insurance == false) || allergies == "sunshine"
     result = "Probably a vampire."
   elsif age_varified == false && likes_garlic == false && insurance == false
     result = "Almost certainly a vampire."
   else
     result = "Results inconclusive."
   end
+
+
 
   if name == "Drake Cula" || name == "Tu Fang"
     result = "Definitely a vampire."
@@ -65,5 +75,5 @@ until employees == 0 do
   employees = employees - 1
 end
 
-
+puts  "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
