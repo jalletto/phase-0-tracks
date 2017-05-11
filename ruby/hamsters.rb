@@ -1,7 +1,9 @@
 puts "Please input your hamster's name."
 name = gets.chomp
+
 puts "Enter 1 - 10 for volume level."
 volume = gets.chomp.to_i
+
 loop do
   if volume >= 1 && volume <= 10
 
@@ -11,8 +13,10 @@ loop do
     volume = gets.chomp.to_i
   end
 end
+
 puts "Enter fur color."
 color = gets.chomp
+
 puts "Good for adoption (y or n)?"
 adoption = gets.chomp
 

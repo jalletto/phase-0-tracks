@@ -1,9 +1,15 @@
+
+
+
 puts "What is your name?"
 name = gets.chomp
+
 puts "How old are you?"
 age = gets.chomp.to_i
+
 puts "What year were you born?"
 birth_year = gets.chomp.to_i
+
 if birth_year + age == 2017 || birth_year + age == 2016
   age_varified = true
 else
@@ -38,38 +44,23 @@ until insurance == true || insurance == false do
   end
 end
 
-puts "Name:#{name}\nAge:#{age}\nYOB:#{birth_year}\nLikes garlic:#{likes_garlic}\nInsurance:#{insurance}\nAge Verified:#{age_varified}"
-
-# case
-# when age_varified == true && (likes_garlic == true || insurance == true)
-#   result = "Probably not a vampire"
-# when age_varified == false && (likes_garlic == false && insurance == true) || (likes_garlic == true && insurance == true)
-#   result = "Probably a vampire."
-# when age_varified == false && likes_garlic == false && insurance == false
-#   result = "Almost certainly a vampire."
-# else
-#   result = "Results inconclusive."
-# end
-
-# if name == "Drake Cula" || name == "Tu Fang"
-#   result = "Definitely a vampire."
-# end
-
-
-
 if age_varified == true && (likes_garlic == true || insurance == true)
   result = "Probably not a vampire"
-elsif age_varified == false && (likes_garlic == false && insurance == true) || (likes_garlic == true && insurance == true)
+elsif age_varified == false && (likes_garlic == false && insurance == true) || (likes_garlic == true && insurance == false)
   result = "Probably a vampire."
 elsif age_varified == false && likes_garlic == false && insurance == false
   result = "Almost certainly a vampire."
-elsif name == "Drak Cula" || name == "Tu Fang"
-  result = "Definitely a vampire."
 else
   result = "Results inconclusive."
 end
 
+if name == "Drake Cula" || name == "Tu Fang"
+  result = "Definitely a vampire."
+end
+
+puts "Name: #{name}\nAge: #{age}\nYOB: #{birth_year}\nLikes garlic: #{likes_garlic}\nInsurance: #{insurance}\nAge Verified: #{age_varified}"
 puts result
+
 
 
 
