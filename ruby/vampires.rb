@@ -18,7 +18,7 @@ until employees == 0 do
     age_varified = false
   end
 
-  puts "Our company cafeteria serves garlic bread. Should we order some for   you?"
+  puts "Our company cafeteria serves garlic bread. Should we order some for you?"
   likes_garlic = gets.chomp
 
   until likes_garlic == true || likes_garlic == false do
@@ -55,8 +55,8 @@ until employees == 0 do
   end
 
   if age_varified == true && (likes_garlic == true || insurance == true) && allergies == "done"
-    result = "Probably not a vampire"
-  elsif age_varified == false && (likes_garlic == false && insurance == true) || age_varified == false && (likes_garlic == true && insurance == false) || allergies == "sunshine"
+    result = "Probably not a vampire."
+  elsif age_varified == false && (likes_garlic == false && insurance == true) || age_varified == false && (likes_garlic == true && insurance == false)
     result = "Probably a vampire."
   elsif age_varified == false && likes_garlic == false && insurance == false
     result = "Almost certainly a vampire."
@@ -64,13 +64,15 @@ until employees == 0 do
     result = "Results inconclusive."
   end
 
-
+  if allergies == "sunshine" && (result == "Probably not a vampire." || result == "Results inconclusive.")
+    result = "Probably a vampire."
+  end
 
   if name == "Drake Cula" || name == "Tu Fang"
     result = "Definitely a vampire."
   end
 
-  puts "Name: #{name}\nAge: #{age}\nYOB: #{birth_year}\nLikes garlic: #{  likes_garlic}\nInsurance: #{insurance}\nAge Verified: #{age_varified}\nVerdicted: #{result}"
+  puts "Name: #{name}\nAge: #{age}\nYOB: #{birth_year}\nLikes garlic: #{  likes_garlic}\nInsurance: #{insurance}\nAge Verified: #{age_varified}\nAllergies: #{allergies}\nVerdicted: #{result}"
 
   employees = employees - 1
 end
