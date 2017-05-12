@@ -27,7 +27,7 @@ until employees == 0 do
     elsif likes_garlic == "n" || likes_garlic == "no" || likes_garlic == "nope  "
       likes_garlic = false
     else
-      puts "Do want garlic bread? yes or no?"
+      puts "Do you want garlic bread? yes or no?"
       likes_garlic = gets.chomp
     end
   end
@@ -41,16 +41,16 @@ until employees == 0 do
     elsif insurance == "n" || insurance == "no" || insurance == "nope"
       insurance = false
     else
-      puts "Do want insurance? yes or no?"
+      puts "Do you want insurance? yes or no?"
       insurance = gets.chomp
     end
   end
 
-  puts "Please list any allergies one at a time. Type 'done' and press enter when completed."
+  puts "Please list any allergies you have one at a time. Type 'done' and press enter when completed."
   allergies = gets.chomp
 
   until allergies == "sunshine" || allergies == "done" do
-    puts "Please list any allergies one at a time. Type 'done' and press enter when completed."
+    puts "Please list any allergies you have one at a time. Type 'done' and press enter when completed."
     allergies = gets.chomp
   end
 
@@ -72,7 +72,7 @@ until employees == 0 do
     result = "Definitely a vampire."
   end
 
-  puts "Name: #{name}\nAge: #{age}\nYOB: #{birth_year}\nLikes garlic: #{  likes_garlic}\nInsurance: #{insurance}\nAge Verified: #{age_varified}\nAllergies: #{allergies}\nVerdicted: #{result}"
+  puts "Name: #{name}\nAge: #{age}\nYOB: #{birth_year}\nLikes garlic: #{  likes_garlic}\nInsurance: #{insurance}\nAge Verified: #{age_varified}\nAllergies: #{allergies}\nVerdict: #{result}"
 
   employees = employees - 1
 end
