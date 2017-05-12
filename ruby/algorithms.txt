@@ -8,4 +8,13 @@
 	push button 
 
 2. Come up with an example of a common task in your life that could be translated into an algorithm, and write out the steps in algorithms.txt (labeled with the name of the task).
-	
+	Making a Can of Soup
+
+	if there is a pull tab pull it to remove top
+	else use can opener
+	place empty pot on stove
+	dump soup into pot (cooking = pot + can contents)
+	turn nob on stove until flame lights. 
+	turn nob back until medium heat.
+	heat soup until simmer
+	turn nob back until heat off
