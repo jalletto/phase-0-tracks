@@ -1,41 +1,42 @@
 def encrypt(word)
-  counter = 0
+  word_length = word.length.to_i
+  new_word = ""
 
-  while counter < word.to_s.length do
-    new_letter = word[counter].next
+  word_length.times do |i|
+    new_letter = word[i].next
     if new_letter == "aa"
       new_letter = "a"
     end
-    print new_letter
-    counter += 1
+    new_word << new_letter
   end
-
+  new_word
 end
 
-def decrypt(crypt)
-  count = 0
+def decrypt(word)
+  word_length = word.length.to_i
+  new_word = ""
   alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-  while count < crypt.to_s.length do
-    letter = crypt[count]
+  word_length.times do |i|
+    letter = word[i]
     result = alphabet.index(letter)
-    print alphabet[result - 1]
-    count += 1
+    new_word << alphabet[result - 1]
   end
-
+  new_word
 end
 
-puts encrypt("abc") #should return "bcd"
-puts encrypt("zed") #should return "afe"
-puts decrypt("bcd") #should return "abc"
-puts decrypt("afe") #should return "zed"
+# puts encrypt("abc") #should return "bcd"
+# puts encrypt("zed") #should return "afe"
+# puts decrypt("bcd") #should return "abc"
+# puts decrypt("afe") #should return "zed"
 
 
-puts decrypt(encrypt("swordfish"))
-puts encrypt(decrypt("txpsegjti"))
+# puts decrypt(encrypt("swordfish"))
+# puts encrypt(decrypt("txpsegjti"))
 
 
 valid_input = false
+
 until valid_input do
   puts "Type D to decrypt a password. Type E to encrypt a password."
   opporation = gets.chomp
