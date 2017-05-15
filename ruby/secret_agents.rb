@@ -1,3 +1,4 @@
+
 def encrypt(word)
   word_length = word.length.to_i
   new_word = ""
@@ -9,7 +10,7 @@ def encrypt(word)
     end
     new_word << new_letter
   end
-  new_word
+  puts new_word
 end
 
 def decrypt(word)
@@ -22,7 +23,7 @@ def decrypt(word)
     result = alphabet.index(letter)
     new_word << alphabet[result - 1]
   end
-  new_word
+  puts new_word
 end
 
 # puts encrypt("abc") #should return "bcd"
