@@ -30,10 +30,22 @@ p client_info
 puts "If you would like to make changes, enter the name of the field you would like to update. If not, type 'done'. "
   field_update = gets.chomp
 
-  if client_info.key?(field_update.to_sym)
-    puts "Enter new value."
-    client_info[field_update.to_sym] = gets.chomp
-    p client_info
+# give a field to update. check if the field exists. make sure the new value entered is the correct data type. assign the new value to the key.
+
+if field_update.to_sym == :name || field_update.to_sym == :fav_light_bulb
+  puts "Enter new value."
+  client_info[field_update.to_sym] = gets.chomp
+elsif field_update.to_sym == :age || field_update.to_sym == :number_children
+  puts "Enter new value."
+  client_info[field_update.to_sym] = gets.chomp.to_i
+elsif field_update.to_sym == :party
+  puts "Do you like to party?"
+  party = gets.chomp
+  if party == "yes"
+    client_info[:party] = true
   else
-    puts "Thank you. Have a great day."
+    client_info[:party] = false
   end
+end
+
+p client_info
