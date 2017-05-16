@@ -49,12 +49,21 @@ p numbers.delete_if { |x| x < 5 }
 
 p numbers.keep_if { |x| x > 5 }
 
+  #returns key only if value contains an "o"
+p user_data.keep_if {|data_type, data_value| data_value.include?("o")}
+
 #release 2.3
 
 p letters.include?("a")
 
 #release 2.4
 p letters.drop_while {|x| x < "d"}
+
+  #loops through hash until data_type equals eye_color
+p user_data.drop_while {|data_type, data_value| data_type != :eye_color}
+
+
+
 
 
 
