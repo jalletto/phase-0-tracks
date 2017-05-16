@@ -4,16 +4,16 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# "iNvEsTiGaTiOn".<???>
+"iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
 # "zom".<???>
 # => “zoom”
 
-# "enhance".<???>
+"enhance".center(30)
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+"Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
 # "the usual".<???>
@@ -28,12 +28,13 @@
 # "The mystery of the missing first letter".<???>
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+"Elementary,    my   dear        Watson!".squeeze (" ")
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
-# => 122 
-# (What is the significance of the number 122 in relation to the character z?)
+"z".getbyte(0)
+# => 122
+# (What is the significance of the number 122 in relation to the character z?
+# 122 refers to the ASCII CODE which is a way of standardizing characters across different systems, countries, and programs. Uppercase Z is 90.)
 
-# "How many times does the letter 'a' appear in this string?".<???>
+"How many times does the letter 'a' appear in this string?".count(a)
 # => 4
