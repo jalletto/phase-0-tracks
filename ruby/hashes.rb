@@ -16,7 +16,12 @@ client_info[:age] = gets.chomp.to_i
 puts "How many children do you have?"
 client_info[:number_children] = gets.chomp.to_i
 puts "Do you like to party?"
-party = gets.chomp
+  party = gets.chomp
+if party == "yes"
+  client_info[:party] = true
+else
+  client_info[:party] = false
+end
 puts "What is your favorite type of light bulb?"
 client_info[:fav_light_bulb] = gets.chomp
 
