@@ -26,3 +26,14 @@ puts "What is your favorite type of light bulb?"
 client_info[:fav_light_bulb] = gets.chomp
 
 p client_info
+
+puts "If you would like to make changes, enter the name of the field you would like to update. If not, type 'done'. "
+  field_update = gets.chomp
+
+  if client_info.key?(field_update.to_sym)
+    puts "Enter new value."
+    client_info[field_update.to_sym] = gets.chomp
+    p client_info
+  else
+    puts "Thank you. Have a great day."
+  end
