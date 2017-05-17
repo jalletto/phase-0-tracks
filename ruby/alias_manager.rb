@@ -10,8 +10,9 @@ new_name = agent_name.join(' ')
 
 # "Felicia Torres" will become "Vussit Gimodoe",
 
-def vowel_changer(word)
+def code_name_namer(word)
   vowels = %w(a e i o u)
+
   consonants = %w(b c d f g h j k l m n p q r s t v w x y z)
 
   wordarray = word.split("")
@@ -19,13 +20,14 @@ def vowel_changer(word)
   wordarray.map! do |letter|
     if vowels.include? letter
       vowel_index = vowels.index(letter) + 1
-      letters = vowels[vowel_index]
+      letter = vowels[vowel_index]
     elsif consonants.include? letter
       consonant_index = consonants.index(letter) + 1
-      letters = consonants[consonant_index]
-    else
-      letter
+      letter = consonants[consonant_index]
     end
+    letter
   end
   wordarray.join
 end
+
+p code_name_namer(new_name)
