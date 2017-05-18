@@ -1,8 +1,5 @@
 # Swapping the first and last name.
 # turn the names into an array and then reverse it.
-
-
-
 # Changing all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou', and all of the consonants (everything else besides the vowels) to the next consonant in the alphabet. So 'a' would become 'e', 'u' would become 'a', and 'd' would become 'f'.
 # JUST FOR ME: for each letter in word (cat) take "c" compare it to the array of vowels. If there is a match (such as "a") find the vowel's index (in this case "a" is zero) and add one to it. Then set the letter to equal that value in the index.
 
@@ -37,6 +34,8 @@ def code_name_namer(word)
 end
 
 
+# hash for old and new names
+agent_names = {}
 
 
 loop do
@@ -46,8 +45,15 @@ loop do
     break
   end
   reverse_name = input.downcase.split(' ').reverse
+
   new_name = reverse_name.join(' ')
-  p code_name_namer(new_name)
+
+  code_name = code_name_namer(new_name)
+
+  agent_names[input] = code_name
+
+  p code_name
 end
 
+agent_names.each {|original_name, code_name| puts "#{original_name} is also know as #{code_name}"}
 
