@@ -1,8 +1,6 @@
 # Swapping the first and last name.
 # turn the names into an array and then reverse it.
-puts "enter name"
-agent_name = gets.chomp.downcase.split(' ').reverse
-new_name = agent_name.join(' ')
+
 
 
 # Changing all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou', and all of the consonants (everything else besides the vowels) to the next consonant in the alphabet. So 'a' would become 'e', 'u' would become 'a', and 'd' would become 'f'.
@@ -33,11 +31,23 @@ def code_name_namer(word)
     end
     letter
   end
-  wordarray.join
+  new_name = wordarray.join
+  capitalize_array = new_name.split(" ")
+  capitalize_array.map! {|word| word.capitalize}.join(" ")
 end
 
 
-p code_name_namer(new_name)
 
+
+loop do
+  puts "Enter a name or type 'quit' to exit."
+  input = gets.chomp
+  if input == "quit"
+    break
+  end
+  reverse_name = input.downcase.split(' ').reverse
+  new_name = reverse_name.join(' ')
+  p code_name_namer(new_name)
+end
 
 
