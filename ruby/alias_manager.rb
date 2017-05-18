@@ -20,9 +20,15 @@ def code_name_namer(word)
   wordarray.map! do |letter|
     if vowels.include? letter
       vowel_index = vowels.index(letter) + 1
+      if vowel_index == vowels.length
+        vowel_index = 0
+      end
       letter = vowels[vowel_index]
     elsif consonants.include? letter
       consonant_index = consonants.index(letter) + 1
+      if consonant_index == consonants.length
+        consonant_index = 0
+      end
       letter = consonants[consonant_index]
     end
     letter
@@ -30,4 +36,8 @@ def code_name_namer(word)
   wordarray.join
 end
 
+
 p code_name_namer(new_name)
+
+
+
