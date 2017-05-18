@@ -36,6 +36,14 @@ user_data.each do |key, value|
 end
 
 # Release 2: Use the Documentation
+# some of these use hash user_data and some use letter_hash.
+
+letter_hash = {
+  a:"1000",
+  b:"2000",
+  c:"3000",
+  d:"4000"
+}
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 letters = ["a", "b", "c", "d", "e"]
@@ -44,6 +52,7 @@ letters = ["a", "b", "c", "d", "e"]
 
 p numbers.delete_if { |x| x < 5 }
 
+p letter_hash.delete_if { |key, value| key >=:b}
 
 #release 2.2
 
@@ -55,6 +64,8 @@ p user_data.keep_if {|data_type, data_value| data_value.include?("o")}
 #release 2.3
 
 p letters.include?("a")
+
+p letter_hash.has_value?("3000")
 
 #release 2.4
 p letters.drop_while {|x| x < "d"}
