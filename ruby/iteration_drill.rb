@@ -132,11 +132,19 @@ extinct_animals.each do |animal, year|
 
 animals = ["Andean Cat", "Dodo", "Saiga Antelope"]
 
-# for each item in the array, compare it to each key value in the hash.
+#for each item in the array, compare it to each key value in the hash.
 #if you find a match print the array item and "extinct"
 #if no match found, print the array item and "not extinct"
 
+animals.each do |name|
 
+  extinct_animals.each do |key, value|
+
+    if key == name
+      puts "#{key} is extinct."
+    end
+  end
+end
 
 
 
@@ -144,4 +152,24 @@ animals = ["Andean Cat", "Dodo", "Saiga Antelope"]
 # Remove them from extinct_animals and return the key value pair as a two item array.
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
-# ----
+def search_for_key_return_as_array(search,hash)
+  new_hash = {}
+  x = 0
+  until x == hash.length
+
+    array = hash.shift
+
+      if array[0] == search
+        new_array = array
+      else
+        new_hash[array[0]] = array[1]
+      end
+    x = x + 1
+    new_hash = hash
+
+  end
+  p hash
+  p new_array
+end
+
+search_for_key_return_as_array("Passenger Pigeon", extinct_animals)
