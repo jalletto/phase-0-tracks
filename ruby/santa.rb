@@ -53,4 +53,4 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
   number_of_santas.times{|i| p Santa.new(example_genders.sample, example_ethnicities.sample, rand(140))}
 end
 
-create_santas(10)
+create_santas(1000)
