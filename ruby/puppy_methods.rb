@@ -58,7 +58,7 @@ class Kittens
 end
 
 # Create a method that generates a number of names for our kittens, from a common base name (e.g Kitten_1, Kitten_2, Kitten_3, etc.) and stores the names in an array.
-
+# Name generator by Gwynne Noth. Thanks dude!
 def name_generator(base_name, num_of_names_to_generate)
   names_created = 0
   name_array = []
@@ -89,6 +89,7 @@ end
 Don = Kittens.new("Don")
 Don.meow(3)
 Don.jump
+
 
 kitten_collection.each do |kitten|
   kitten.best_ever
