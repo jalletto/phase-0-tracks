@@ -21,31 +21,36 @@
 
 class Word_Game
 
-  attr_reader :guesses, :word
+  attr_reader :guesses, :word_array, :guessed_letters, :word, :guess_state
 
   def initialize(word)
     @word = word
     @word_array = word.split('')
     @guesses = @word.length
     @guess_state = ("_" * @guesses).split('')
+    @guessed_letters = []
   end
 
-  def check_guess_state
-    p @guess_state.join(" ")
-  end
 
   def make_a_guess(letter)
     counter = 0
-    @word_array.each do |item|
 
-      if item == letter
-        @guess_state.insert(counter, letter)
-        @guess_state.delete_at(counter + 1)
+    if @guessed_letters.include? letter
+      false
+
+    else
+        @word_array.each do |item|
+
+        if item == letter
+          @guess_state.insert(counter, letter)
+          @guess_state.delete_at(counter + 1)
+          @guessed_letters << letter
+        end
+        counter += 1
+        true
       end
-      counter += 1
-
+      @guesses -= 1
     end
-    @guesses -= 1
   end
 end
 
@@ -53,21 +58,25 @@ puts "Enter a word for your friend to guess."
 
 game = Word_Game.new(gets.chomp)
 
-until game.guesses == 0 || game.check_guess_state == game.word
-  puts "You have  #{game.guesses} guesses remaining."
+until game.guesses == 0 || game.guess_state == game.word_array
+
   puts "Guess a letter."
 
-  game.make_a_guess(gets.chomp)
-  game.check_guess_state
-  puts "You have  #{game.guesses} guesses remaining."
+  if game.make_a_guess(gets.chomp)
+    p game.guess_state.join(" ")
+    puts "You have #{game.guesses} guesses remaining."
+  else
+    puts "You already guessed that letter. Try a new letter."
+  end
+
 end
 
 if game.guesses == 0
   puts "You have failed! The correct answer is #{game.word}"
 end
 
-if game.check_guess_state == game.word
-  puts "You have succeeded! he correct answer is #{game.word}"
+if game.guess_state == game.word_array
+  puts "You have succeeded! The correct answer is #{game.word}"
 end
 
 
