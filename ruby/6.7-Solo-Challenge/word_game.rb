@@ -54,24 +54,27 @@ class Word_Game
   end
 end
 
+# User Interface
+
 puts "Enter a word for your friend to guess."
 
-game = Word_Game.new(gets.chomp)
+game = Word_Game.new(gets.chomp.downcase)
 
 until game.guesses == 0 || game.guess_state == game.word_array
-
+  p game.guess_state.join(" ")
   puts "Guess a letter."
 
-  if game.make_a_guess(gets.chomp)
-    p game.guess_state.join(" ")
+  if game.make_a_guess(gets.chomp.downcase)
+
     puts "You have #{game.guesses} guesses remaining."
   else
     puts "You already guessed that letter. Try a new letter."
+    puts "You have #{game.guesses} guesses remaining."
   end
 
 end
 
-if game.guesses == 0
+if game.guesses == 0 && game.guess_state != game.word_array
   puts "You have failed! The correct answer is #{game.word}"
 end
 
