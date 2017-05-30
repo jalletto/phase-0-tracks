@@ -79,7 +79,7 @@ def print_pretty_list(list)
 end
 
 # test method calls
-shopping_list = create_list("lemonade tomatoes onions ice")
+shopping_list = create_list("lemonade, tomatoes, onions, ice cream")
 remove_item(shopping_list, "lemonade")
 update_quantity(shopping_list, "tomatoes", 3)
 update_quantity(shopping_list, "ice", 4)
