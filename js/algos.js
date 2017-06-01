@@ -11,7 +11,7 @@ function retrieveLongest(array) {
       longestArrayItem += " " + array[i]
       }
   }
-  console.log(longestArrayItem)
+  return longestArrayItem
 }
 
 
@@ -24,7 +24,7 @@ function keyValueMatch(objectOne, objectTwo){
       }
     }
   }
-  console.log(match)
+  return match
 }
 
 function getRandomInt(min, max) {
@@ -34,7 +34,7 @@ function getRandomInt(min, max) {
 }
 
 function randomeWordGenerator(){
-  var wordLength = getRandomInt(1, 11);
+  var wordLength = getRandomInt(1, 10);
   var newString = "";
   for(i = wordLength; i >= 0; i -= 1){
 
@@ -49,33 +49,44 @@ function randomeWordGenerator(){
 
 function createRandomArray(arrayLength){
 
-  newArray = []
+  var newArray = []
   for(var i = arrayLength - 1; i >= 0; i -= 1){
     newArray.push(randomeWordGenerator())
   }
-  console.log(newArray)
+  return newArray
 }
 
 //Driver Code
 
-//retrieveLongest
-var phrases = ["long phrase","longest phrase","longer phrase"]
-var otherWords = ["quarter", "buzz","zonk","nitrate"]
+// generates an array, prints the array, feeds the array to your "longest word" function, and prints the result
 
-retrieveLongest(phrases)
-retrieveLongest(otherWords)
+// I had used 'i' in this loop just like the others but it kept creating an infinite loop. I messed with it for an hour before I changed 'i' to 'loop' because I was out of ideas and it worked. Any idea why this might have been? Was the loop somehow accessing 'i' variables from the functions?
+for(var loop = 0; loop < 10; loop ++){
 
-//keyValueMatch
-var steve = {name: "Steven", age: 54, weight: 200, shoes: false};
-var tamir = {name: "Tamir", age: 54, weight: 190, shoes: true};
-var fido = {animal: "Dog", legs: 4};
-var pepsi = {animal: "Dog", legs: 3};
+  var coolNewArray = createRandomArray(3);
+  console.log(coolNewArray);
+  console.log(retrieveLongest(coolNewArray));
 
-keyValueMatch(steve, tamir)
-keyValueMatch(fido, pepsi)
-keyValueMatch(fido, tamir)
+}
+
+
+// //retrieveLongest
+// var phrases = ["long phrase","longest phrase","longer phrase"]
+// var otherWords = ["quarter", "buzz","zonk","nitrate"]
+
+// retrieveLongest(phrases)
+// retrieveLongest(otherWords)
+
+// //keyValueMatch
+// var steve = {name: "Steven", age: 54, weight: 200, shoes: false};
+// var tamir = {name: "Tamir", age: 54, weight: 190, shoes: true};
+// var fido = {animal: "Dog", legs: 4};
+// var pepsi = {animal: "Dog", legs: 3};
+
+// keyValueMatch(steve, tamir)
+// keyValueMatch(fido, pepsi)
+// keyValueMatch(fido, tamir)
 
 // createRandomArray
-
-createRandomArray(5)
-createRandomArray(30)
+// createRandomArray(3)
+// createRandomArray(30)
