@@ -27,12 +27,33 @@ function keyValueMatch(objectOne, objectTwo){
   console.log(match)
 }
 
-function createRandomArray(arrayLength){
-  newArray = []
-  for(var i = arrayLength; i >= 0; i -= 1){
-    newArray.push()
-  }
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
+function randomeWordGenerator(){
+  var wordLength = getRandomInt(1, 11);
+  var newString = "";
+  for(i = wordLength; i >= 0; i -= 1){
+
+    var alphabet = "abcdefghijklmnopqrstuvwxyz"
+    letter = alphabet.charAt(getRandomInt(0, 26))
+    newString += letter
+
+  }
+   return newString
+}
+
+
+function createRandomArray(arrayLength){
+
+  newArray = []
+  for(var i = arrayLength - 1; i >= 0; i -= 1){
+    newArray.push(randomeWordGenerator())
+  }
+  console.log(newArray)
 }
 
 //Driver Code
@@ -55,3 +76,6 @@ keyValueMatch(fido, pepsi)
 keyValueMatch(fido, tamir)
 
 // createRandomArray
+
+createRandomArray(5)
+createRandomArray(30)
