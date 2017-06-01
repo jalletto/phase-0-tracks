@@ -1,5 +1,6 @@
 
-//Functions
+//Functions----------------------
+
 function retrieveLongest(array) {
   var longestArrayItem = "";
 
@@ -56,11 +57,12 @@ function createRandomArray(arrayLength){
   return newArray
 }
 
-//Driver Code
+//Driver Code------------------------------------------
 
 // generates an array, prints the array, feeds the array to your "longest word" function, and prints the result
 
 // I had used 'i' in this loop just like the others but it kept creating an infinite loop. I messed with it for an hour before I changed 'i' to 'loop' because I was out of ideas and it worked. Any idea why this might have been? Was the loop somehow accessing 'i' variables from the functions?
+
 for(var loop = 0; loop < 10; loop ++){
 
   var coolNewArray = createRandomArray(3);
@@ -70,14 +72,16 @@ for(var loop = 0; loop < 10; loop ++){
 }
 
 
-// //retrieveLongest
+//retrieveLongest----------------------------------
+
 // var phrases = ["long phrase","longest phrase","longer phrase"]
 // var otherWords = ["quarter", "buzz","zonk","nitrate"]
 
 // retrieveLongest(phrases)
 // retrieveLongest(otherWords)
 
-// //keyValueMatch
+//keyValueMatch--------------------------------
+
 // var steve = {name: "Steven", age: 54, weight: 200, shoes: false};
 // var tamir = {name: "Tamir", age: 54, weight: 190, shoes: true};
 // var fido = {animal: "Dog", legs: 4};
@@ -87,6 +91,7 @@ for(var loop = 0; loop < 10; loop ++){
 // keyValueMatch(fido, pepsi)
 // keyValueMatch(fido, tamir)
 
-// createRandomArray
+// createRandomArray------------------------------
+
 // createRandomArray(3)
 // createRandomArray(30)
