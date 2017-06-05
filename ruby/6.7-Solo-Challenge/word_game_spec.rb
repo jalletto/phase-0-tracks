@@ -3,10 +3,10 @@
 require_relative 'word_Game'
 
 describe Word_Game do
- let(:game) {Word_Game.new("bubble")}
+ let(:game) {Word_Game.new("")}
 
  it "prints current state of guesses" do
-  expect(game.check_guess_state).to eq %w(_ _ _ _ _ _)
+  expect(game.check_guess_state).to eq "You are now looking at a #{animal}. It eats #{food} pounds of food."
  end
 
  it "checks if your letter is included and updates guess array" do
