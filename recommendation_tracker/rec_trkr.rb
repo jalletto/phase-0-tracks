@@ -29,44 +29,55 @@ def view_books(db)
   books = db.execute('SELECT * FROM books')
 
   books.each do |book|
-    puts "#{book[1]} by #{book[2]}#{book[3]}"
+    puts "#{books.index(book)} #{book[1]} by #{book[2]}#{book[3]}"
   end
 
 end
 
-view_books(db)
+def delete_book(db, title)
+  db.execute('DELETE FROM books WHERE title = ?', [title])
+end
+
 
 
 
 #UI
+mode = ''
+until mode == 'q'
 
-# puts "A - add book\nD - delete book\nV - view your recommendations."
+  puts "\nA - add book\nD - delete book\nV - view your recommendations\nQ - quit\n"
 
+  mode = gets.chomp.downcase
 
+  if mode == 'a'
+    done_adding_books = false
 
+    until done_adding_books == true
+      puts "Enter the book's title."
+      title = gets.chomp
+      puts "Enter the author's first name."
+      author_first = gets.chomp
+      puts "Enter the author's last name."
+      author_last = gets.chomp
 
+      add_book(db, title, author_first, author_last)
 
+      puts "Add another? Y or N"
 
-# done_adding_books = false
-
-# until done_adding_books
-#   puts "Enter the book's title."
-#   title = gets.chomp
-#   puts "Enter the author's first name."
-#   author_first = gets.chomp
-#   puts "Enter the author's last name."
-#   author_last = gets.chomp
-
-#   add_book(db, title, author_first, author_last)
-
-#   puts "Add another? Y or N"
-#     add_another = gets.chomp
-#     if add_another == 'N'
-#       !done_adding_books
-#     end
-
-# end
-
+        add_another = gets.chomp.downcase
+        if add_another == 'n'
+          done_adding_books = true
+        end
+      end
+    elsif mode == 'd'
+      view_books(db)
+      puts "Type the name of the book you want to delete."
+      book_to_delete = gets.chomp
+      delete_book(db, book_to_delete)
+  elsif mode == 'v'
+  view_books(db)
+  end
+end
 
 
 
