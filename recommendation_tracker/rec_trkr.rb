@@ -25,9 +25,47 @@ def add_book(db, title, author_first, author_last)
   db.execute("INSERT INTO books (title, author_first, author_last) VALUES (?, ?, ?)", [title, author_first, author_last])
 end
 
-# add book
+def view_books(db)
+  books = db.execute('SELECT * FROM books')
 
-add_book(db, 'Dune', 'Frank', 'Herbert')
+  books.each do |book|
+    puts "#{book[1]} by #{book[2]}#{book[3]}"
+  end
+
+end
+
+view_books(db)
+
+
+
+#UI
+
+# puts "A - add book\nD - delete book\nV - view your recommendations."
+
+
+
+
+
+
+# done_adding_books = false
+
+# until done_adding_books
+#   puts "Enter the book's title."
+#   title = gets.chomp
+#   puts "Enter the author's first name."
+#   author_first = gets.chomp
+#   puts "Enter the author's last name."
+#   author_last = gets.chomp
+
+#   add_book(db, title, author_first, author_last)
+
+#   puts "Add another? Y or N"
+#     add_another = gets.chomp
+#     if add_another == 'N'
+#       !done_adding_books
+#     end
+
+# end
 
 
 
