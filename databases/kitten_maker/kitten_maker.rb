@@ -26,15 +26,34 @@ db.execute(create_table_cmd)
 # db.execute("INSERT INTO kittens (name, age) VALUES ('Bob', 10)")
 
 # add LOOOOTS of kittens!
-# so. many. kittens. 
+# so. many. kittens.
 #KittenExplosion
 def create_kitten(db, name, age)
   db.execute("INSERT INTO kittens (name, age) VALUES (?, ?)", [name, age])
 end
 
-10000.times do
-  create_kitten(db, Faker::Name.name, 0)
+puts "number of kittens to add"
+
+number_of_kittens = gets.chomp.to_i
+
+until number_of_kittens == 0
+
+puts "Enter kitten name."
+
+kitten_name = gets.chomp
+
+puts "Enter age."
+
+age = gets.chomp
+
+create_kitten(db, kitten_name, age)
+
+
+  number_of_kittens -= 1
 end
+
+
+
 
 # explore ORM by retrieving data
 # kittens = db.execute("SELECT * FROM kittens")
