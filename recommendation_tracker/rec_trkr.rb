@@ -29,7 +29,7 @@ def view_books(db)
   books = db.execute('SELECT * FROM books')
 
   books.each do |book|
-    puts "#{books.index(book)} #{book[1]} by #{book[2]}#{book[3]}"
+    puts "\n#{books.index(book) + 1}. #{book[1]} by #{book[2]}#{book[3]}"
   end
 
 end
@@ -53,11 +53,11 @@ until mode == 'q'
     done_adding_books = false
 
     until done_adding_books == true
-      puts "Enter the book's title."
+      puts "\nEnter the book's title."
       title = gets.chomp
-      puts "Enter the author's first name."
+      puts "\nEnter the author's first name."
       author_first = gets.chomp
-      puts "Enter the author's last name."
+      puts "\nEnter the author's last name."
       author_last = gets.chomp
 
       add_book(db, title, author_first, author_last)
@@ -71,7 +71,7 @@ until mode == 'q'
       end
     elsif mode == 'd'
       view_books(db)
-      puts "Type the name of the book you want to delete."
+      puts "\nType the title of the book you want to delete."
       book_to_delete = gets.chomp
       delete_book(db, book_to_delete)
   elsif mode == 'v'
