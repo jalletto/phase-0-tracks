@@ -23,7 +23,6 @@ SQL
 create_friends_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS friends(
     id INTEGER PRIMARY KEY,
-    title VARCHAR(255),
     name VARCHAR(255)
 
   )
@@ -34,16 +33,16 @@ db.execute(create_books_cmd)
 db.execute(create_friends_cmd)
 
 
-
-def add_book(db, title, author_first, author_last, user_message)
-  db.execute("INSERT INTO books (title, author_first, author_last, user_message) VALUES (?, ?, ?, ?)", [title, author_first, author_last, user_message])
+# All methods for BOOKS table
+def add_book(db, title, author_first, author_last, user_message, friend_id)
+  db.execute("INSERT INTO books (title, author_first, author_last, user_message, friend_id) VALUES (?, ?, ?, ?, ?)", [title, author_first, author_last, user_message, friend_id])
 end
 
 def view_books(db)
   books = db.execute('SELECT * FROM books')
 
   books.each do |book|
-    puts "\n#{books.index(book) + 1}. #{book[1]} by #{book[2]}#{book[3]}"
+    puts "\n#{books.index(book) + 1}. #{book[1]} by #{book[2]} #{book[3]} friend: #{book[5]}"
   end
 
 end
@@ -52,10 +51,21 @@ def delete_book(db, title)
   db.execute('DELETE FROM books WHERE title = ?', [title])
 end
 
+# All Methods for FRIENDS table ------
+def add_friend(db, friends_name)
+  db.execute("INSERT INTO friends (name) VALUES (?)", [friends_name])
+end
 
-#What were you talking about when the book came up?
+def view_friends(db)
+  friends = db.execute('SELECT * FROM friends')
 
-#UI
+  friends.each do |friend|
+    puts "\n#{friends.index(friend) + 1}. #{friend[1]}"
+  end
+end
+
+
+UI
 mode = ''
 until mode == 'q'
 
@@ -68,6 +78,11 @@ until mode == 'q'
     done_adding_books = false
 
     until done_adding_books == true
+      puts "Awesome! A new recommendation! Who gave it?"
+      new_friend = gets.chomp
+      old_friends = db.execute('SELECT name FROM friends')
+
+      if
       puts "\nEnter the book's title."
       title = gets.chomp
       puts "\nEnter the author's first name."
@@ -76,7 +91,7 @@ until mode == 'q'
       author_last = gets.chomp
       puts "\nWhat where you talking about when this book was recommended to you?"
       user_message = gets.chomp
-      add_book(db, title, author_first, author_last,user_message)
+      add_book(db, title, author_first, author_last,user_message, friend_id)
 
       puts "Add another? Y or N"
 
