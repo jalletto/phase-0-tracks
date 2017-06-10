@@ -65,7 +65,7 @@ def view_friends(db)
 end
 
 
-UI
+#UI
 mode = ''
 until mode == 'q'
 
@@ -82,7 +82,14 @@ until mode == 'q'
       new_friend = gets.chomp
       old_friends = db.execute('SELECT name FROM friends')
 
-      if
+    if !old_friends.flatten.include? new_friend
+
+      add_friend(db, new_friend)
+    end
+
+      friend_id = db.execute('SELECT id FROM friends WHERE name = ?', [new_friend])
+
+
       puts "\nEnter the book's title."
       title = gets.chomp
       puts "\nEnter the author's first name."
