@@ -1,0 +1,32 @@
+SELECT
+businesses.name, 
+reviews.comment, 
+reviews.stars 
+FROM businesses 
+JOIN reviews 
+ON reviews.business_id = businesses.id;
+ 
+
+	Grundy Hollow Wedding Chapel|We had a great wedding here!|5
+	Amir's Towing|They towed my car for no reason!|2
+
+SELECT users.first_name, reviews.comment, reviews.stars FROM users JOIN reviews ON reviews.user_id = users.id;
+
+	Bradford|We had a great wedding here!|5
+	Angela|They towed my car for no reason!|2
+
+SELECT users.first_name, users.last_name, reviews.comment, reviews.stars FROM users JOIN reviews ON reviews.user_id = users.id;
+
+	Bradford|Pitt|We had a great wedding here!|5
+	Angela|Jolie|They towed my car for no reason!|2
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+
+	Bradford|Pitt|Grundy Hollow Wedding Chapel|5|We had a great wedding here!
+	Angela|Jolie|Amir's Towing|2|They towed my car for no reason!
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 1; 
+
+	Bradford|Pitt|Grundy Hollow Wedding Chapel|5|We had a great wedding here!
+	Angela|Jolie|Grundy Hollow Wedding Chapel|1|In the end it was not a good 		wedding. I divorced soon afterwards.
+
