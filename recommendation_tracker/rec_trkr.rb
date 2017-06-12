@@ -58,24 +58,15 @@ def add_friend(db, friends_name)
 end
 
 
+
+# COPY THAT WORKS
 def view_friends(db)
-  friends = db.execute('elect friends.name, books.title FROM friends JOIN books ON friends.id = books.friend_id')
+  friends = db.execute('SELECT DISTINCT friends.name, books.title FROM friends JOIN books ON friends.id = books.friend_id')
 
   friends.each do |friend|
-    friend.each do |name_or_title|
-      if friends.include? friend[0]
-
     puts "\n#{friends.index(friend) + 1}. #{friend[0]} recommended #{friend[1]}"
   end
 end
-
-# COPY THAT WORKS def view_friends(db)
-#   friends = db.execute('elect friends.name, books.title FROM friends JOIN books ON friends.id = books.friend_id')
-
-#   friends.each do |friend|
-#     puts "\n#{friends.index(friend) + 1}. #{friend[0]} recommended #{friend[1]}"
-#   end
-# end
 
 # for each name/book pair if the name exists anywhere else in the array, take the book, add it to first array then delete second array
 
