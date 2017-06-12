@@ -1,4 +1,4 @@
-
+# A program to keep track of your book recommendations, who gave them to you, and what the hell you were talking about when they recommended it.
 
 # require gems
 require 'sqlite3'
